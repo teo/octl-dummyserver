@@ -33,6 +33,10 @@ option go_package = "pb";
 message Event_MesosHeartbeat {
 }
 
+message Event_GenericMessage {
+    string message = 1;
+}
+
 //////////////////////////////////////////////////////
 
 service Octl {
@@ -63,6 +67,7 @@ message StatusUpdate {
     Level level = 1;
     oneof Event {
         Event_MesosHeartbeat mesosHeartbeat = 2;
+        Event_GenericMessage genericMessage = 3;
         //TODO add other events here and in octlevents.proto
     }
 }
